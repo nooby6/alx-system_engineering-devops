@@ -1,14 +1,2 @@
-#!/bin/bash
-
-# Read the input words into an array
-read -ra words
-
-# Sort the words
-sorted_words=$(printf "%s\n" "${words[@]}" | sort)
-
-# Count the occurrence of each word
-word_count=$(printf "%s\n" "${sorted_words[@]}" | uniq -c)
-
-# Print the words that appear exactly once
-echo "$word_count" | awk '$1 == 1 { print $2 }'
-
+#!/bin/bas
+sort |uniq -u
