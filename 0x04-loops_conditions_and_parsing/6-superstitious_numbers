@@ -7,25 +7,23 @@ counter=1
 # Use a while loop to iterate from 1 to 20
 while [ $counter -le 20 ]
 do
-    # Use a case statement to display different messages based on the iteration
-    case $counter in
-        4)
-            # Display "4 and then bad luck from China" for the 4th iteration
-            echo "4 and then bad luck from China"
-            ;;
-        9)
-            # Display "9 and then bad luck from Japan" for the 9th iteration
-            echo "9 and then bad luck from Japan"
-            ;;
-        17)
-            # Display "17 and then bad luck from Italy" for the 17th iteration
-            echo "17 and then bad luck from Italy"
-            ;;
-        *)
-            # Display the current number for other iterations
-            echo $counter
-            ;;
-    esac
+    # Use an if statement to display different messages based on the iteration
+    if [ $counter -eq 4 ]
+    then
+        # Display "4 and then bad luck from China" for the 4th iteration
+        echo "4 and then bad luck from China"
+    elif [ $counter -eq 9 ]
+    then
+        # Display "9 and then bad luck from Japan" for the 9th iteration
+        echo "9 and then bad luck from Japan"
+    elif [ $counter -eq 17 ]
+    then
+        # Display "17 and then bad luck from Italy" for the 17th iteration
+        echo "17 and then bad luck from Italy"
+    else
+        # Display the current number for other iterations
+        echo $counter
+    fi
 
     # Increment the counter
     ((counter++))
