@@ -1,0 +1,22 @@
+#!/usr/bin/env bash
+# This script displays "Best School" 10 times with a special case on the 9th iteration
+
+# Initialize a counter variable
+counter=0
+
+# Use a while loop to iterate until the counter reaches 10
+while [ $counter -lt 10 ]
+do
+    # Check if it's the 9th iteration
+    if [ $counter -eq 8 ]
+    then
+        # Display "Best School" and then "Hi" on a new line
+        echo -e "Best School\nHi"
+    else
+        # Display "Best School" in other iterations
+        echo "Best School"
+    fi
+
+    # Increment the counter
+    ((counter++))
+done
