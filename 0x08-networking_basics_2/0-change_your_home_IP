@@ -1,4 +1,5 @@
 #!/usr/bin/env bash
+# Script to configure an Ubuntu server as per requirements
 
 # Step 1: Backup the original hosts file
 sudo cp /etc/hosts /etc/hosts.bak
