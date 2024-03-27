@@ -1,14 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 # Connect to server using ssh with private key and user ubuntu
 
 # Usage: ./connect_to_server.sh
 
 # Set server IP address
-server_ip="your_server_ip"
+server_ip="52.201.211.127"
 
 # Set private key path
 private_key="~/.ssh/school"
 
 # Connect to server using ssh
-ssh -i "ssh-rsa AAAAB3NzaC1yc2EAAAADAQABAAABgQDMjTqilhedDK3r2ycF+I6pIj6F58R+2kRXc62rbdRQHlNek4gJg5urGKGcEDFdoZzN3WoJokkf+j/2qOorx12+HJeLFQwRwezMzYI1tRybbuIWShkONsaIJJvquddJ3Qmy2eZty3yHw3N9I14C5mNqUxJAWFSHfi20P02t9rUqKg6DF0fN8oakNE6hg3QP3vbxx7AT06HP4hhQTS29Elxia1r5s9e/XSELKbEub3cQ6skRLdjt5gIEjgz5l8DUqNAfVXI6dk+wFXxevIWyEvFpfVLXRIk/KVGCQw+j8auiC/YWpUYzAp/49xxN1C6Epi44WakLESOhsGKExSyGHhSMaSCyuOfWBbTzolZqEj+u8vfdYr9A/N+ATldEFmYwOzapoOtRmQ4dZUMnh0X+nbOIzCzE+Aw311b4AGWOF+aHbBiRWUvCdvgyFHwr7P4iCuuwvWgMnCCAi8sUONRH75L2miSW1Og7IkNAQZ/wU3xGqdRetKRaBv0Sli5gA+9T6MU= gifta@Warhead" ubuntu@"$server_ip"
+ssh -i "~/.ssh/school" ubuntu@"52.201.211.127"
