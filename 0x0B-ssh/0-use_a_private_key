@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Connect to server using ssh with private key and user ubuntu
+# Bash script to connect to a server using ssh with a private key and user ubuntu
 
 # Usage: ./connect_to_server.sh
 
@@ -12,3 +12,4 @@ private_key="~/.ssh/school"
 
 # Connect to server using ssh
 ssh -i "~/.ssh/school" ubuntu@"52.201.211.127"
+
