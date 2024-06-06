@@ -31,6 +31,6 @@ def number_of_subscribers(subreddit):
             return 0
     except requests.RequestException:
         return 0
-
-
-
+if __name__ == "__main__":
+    print(number_of_subscribers('learnpython'))  # Example valid subreddit
+    print(number_of_subscribers('thissubredditdoesnotexist123'))  # Example invalid subreddit
