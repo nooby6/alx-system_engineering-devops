@@ -1,4 +1,11 @@
-#!/usr/bin/python3
+#!/usr/bin/env python3
+"""
+Reddit API Query Module
+
+This module contains a function to query the Reddit API and retrieve the number
+of subscribers for a given subreddit. It handles invalid subreddits by returning 0.
+"""
+
 import requests
 
 def number_of_subscribers(subreddit):
