@@ -1,59 +1,34 @@
 #!/usr/bin/python3
 """
-Python script that, using the JSONPlaceholder REST API, for a given employee ID,
-returns information about his/her TODO list progress.
+Returns to-do list information for a given employee ID.
+
+This script takes an employee ID as a command-line argument and fetches
+the corresponding user information and to-do list from the JSONPlaceholder API.
+It then prints the tasks completed by the employee.
 """
 
 import requests
 import sys
 
 
-def get_employee_todo_progress(employee_id):
-    """Fetch and display TODO list progress for a given employee."""
-    # Base URL for the API
-    base_url = "https://jsonplaceholder.typicode.com"
-
-    # Fetch employee data
-    employee_url = f"{base_url}/users/{employee_id}"
-    response = requests.get(employee_url)
-    if response.status_code != 200:
-        print(f"Error: Employee with ID {employee_id} not found")
-        return
-    employee = response.json()
-
-    # Fetch employee's TODO list
-    todos_url = f"{base_url}/todos?userId={employee_id}"
-    response = requests.get(todos_url)
-    if response.status_code != 200:
-        print(f"Error: Could not retrieve TODO list for employee ID {employee_id}")
-        return
-    todos = response.json()
-
-    # Employee name
-    employee_name = employee.get("name")
-
-    # Number of completed tasks and total tasks
-    total_tasks = len(todos)
-    done_tasks = [todo for todo in todos if todo.get("completed")]
-    number_of_done_tasks = len(done_tasks)
-
-    # Print the TODO list progress
-    print(f"Employee {employee_name} is done with tasks"
-          f"({number_of_done_tasks}/{total_tasks}):")
-    for task in done_tasks:
-        print(f"\t {task.get('title')}")
-
-
 if __name__ == "__main__":
-    if len(sys.argv) != 2:
-        print("Usage: python3 0-gather_data_from_an_API.py <employee_id>")
-        sys.exit(1)
+    # Base URL for the JSONPlaceholder API
+    url = "https://jsonplaceholder.typicode.com/"
 
-    try:
-        employee_id = int(sys.argv[1])
-    except ValueError:
-        print("Employee ID must be an integer")
-        sys.exit(1)
+    # Get the employee information using the provided employee ID
+    employee_id = sys.argv[1]
+    user = requests.get(url + "users/{}".format(employee_id)).json()
 
-    get_employee_todo_progress(employee_id)
+    # Get the to-do list for the employee using the provided employee ID
+    params = {"userId": employee_id}
+    todos = requests.get(url + "todos", params).json()
 
+    # Filter completed tasks and count them
+    completed = [t.get("title") for t in todos if t.get("completed") is True]
+
+    # Print the employee's name and the number of completed tasks
+    print("Employee {} is done with tasks({}/{}):".format(
+        user.get("name"), len(completed), len(todos)))
+
+    # Print the completed tasks one by one with indentation
+    [print("\t {}".format(complete)) for complete in completed]
