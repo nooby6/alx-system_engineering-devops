@@ -1,5 +1,5 @@
 #!/usr/bin/env bash
 
-# Connect to the server using the private key ~/.ssh/school and the user ubuntu
-ssh -i ~/.ssh/id_rsa ubuntu@54.237.217.240
+#Connect to the server using the private key ~/.ssh/school and the user ubuntu
 
+ssh -i ~/.ssh/id_rsa ubuntu@54.237.217.240
